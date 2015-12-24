@@ -32,3 +32,7 @@ bin/*
 
 # autotools
 autom4te.cache
+**/Makefile
+config.h
+config.status
+stamp-h1
