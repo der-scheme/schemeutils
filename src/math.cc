@@ -18,4 +18,4 @@
     along with Schemeutils.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <schemeutils/math>
+#include <scheme/math>
