@@ -22,6 +22,7 @@ AC_PROG_CXX
 # Checks for header files.
 
 # Checks for typedefs, structures, and compiler characteristics.
+AX_CXX_COMPILE_STDCXX_11
 
 # Checks for library functions.
 
