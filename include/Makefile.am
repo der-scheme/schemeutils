@@ -1,1 +1,1 @@
-nobase_include_HEADERS = scheme/math
+nobase_include_HEADERS = scheme/trigonometry
