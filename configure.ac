@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([Schemeutils], [0.1], [Sebastian Dufner <der-scheme@mailbox.org>])
+AC_INIT([Schemeutils], [0.1], [https://github.com/der-scheme/schemeutils/issues],, [https://github.com/der-scheme/schemeutils])
 AM_INIT_AUTOMAKE([foreign])
 LT_PREREQ([2.4])
 LT_INIT([dlopen])
