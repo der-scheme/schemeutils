@@ -18,6 +18,11 @@ AC_CONFIG_FILES([Makefile
 AC_PROG_CXX
 
 # Checks for libraries.
+GTEST_LIB_CHECK([1.7],
+                [echo
+                ],
+                [echo
+                ])
 
 # Checks for header files.
 
