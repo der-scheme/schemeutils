@@ -18,8 +18,8 @@
     along with Schemeutils.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef   SCHEME_MATH
-#define   SCHEME_MATH
+#ifndef   SCHEME_TRIGONOMETRY
+#define   SCHEME_TRIGONOMETRY
 
 #include <cmath>
 #include <type_traits>
@@ -80,4 +80,6 @@ namespace scheme {
   constexpr bool operator>=(const angle&, const angle&) noexcept;
 }
 
-#endif // SCHEME_MATH
+#include <scheme/pieces/trigonometry.hh>
+
+#endif // SCHEME_TRIGONOMETRY
