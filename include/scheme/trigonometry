@@ -21,9 +21,6 @@
 #ifndef   SCHEME_TRIGONOMETRY
 #define   SCHEME_TRIGONOMETRY
 
-#include <cmath>
-#include <type_traits>
-
 namespace scheme {
 
   constexpr const long double pi = 3.14159265358979323846L;
@@ -45,8 +42,13 @@ namespace scheme {
 
   private:
 
+    constexpr double normalized_value() const noexcept;
+
     double value{0};
   };
+
+  constexpr angle radians(double) noexcept;
+  constexpr angle degrees(double) noexcept;
 
   constexpr angle operator"" _deg(long double) noexcept;
   constexpr angle operator"" _rad(long double) noexcept;
