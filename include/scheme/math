@@ -1,0 +1,35 @@
+/*
+    Schemeutils
+    Copyright (c) 2015 Sebastian Dufner
+
+    This file is part of Schemeutils.
+
+    Schemeutils is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Schemeutils is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with Schemeutils.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#ifndef   SCHEME_MATH
+#define   SCHEME_MATH
+
+#include <cmath>
+
+namespace scheme {
+  template <typename Numeric1, typename Numeric2>
+  constexpr auto fmod(Numeric1, Numeric2) noexcept
+      -> decltype(std::fmod(a, b));
+}
+
+#include <scheme/pieces/math.hh>
+#include <scheme/trigonometry>
+
+#endif // SCHEME_MATH
