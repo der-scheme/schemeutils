@@ -18,9 +18,66 @@
     along with Schemeutils.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef   SCHEMEUTILS_MATH
-#define   SCHEMEUTILS_MATH
+#ifndef   SCHEME_MATH
+#define   SCHEME_MATH
 
-// Your code here
+#include <cmath>
+#include <type_traits>
 
-#endif // SCHEMEUTILS_MATH
+namespace scheme {
+
+  constexpr const long double pi = 3.14159265358979323846L;
+
+  class angle {
+  public:
+
+    constexpr angle(double radians) : value{radians} {}
+
+    constexpr operator double() const noexcept;
+
+    angle& operator+=(const angle&) noexcept;
+    angle& operator-=(const angle&) noexcept;
+    angle& operator*=(double) noexcept;
+    angle& operator/=(double) noexcept;
+
+    constexpr double deg() const noexcept;
+    constexpr double rad() const noexcept;
+
+  private:
+
+    double value{0};
+  };
+
+  constexpr angle operator"" _deg(long double) noexcept;
+  constexpr angle operator"" _rad(long double) noexcept;
+
+  constexpr angle cos(const angle&) noexcept;
+  constexpr angle sin(const angle&) noexcept;
+  constexpr angle tan(const angle&) noexcept;
+
+  template <typename Numeric>
+  constexpr angle acos(Numeric) noexcept;
+  template <typename Numeric>
+  constexpr angle asin(Numeric) noexcept;
+  template <typename Numeric>
+  constexpr angle atan(Numeric) noexcept;
+  template <typename Numeric1, typename Numeric2>
+  constexpr angle atan2(Numeric1, Numeric2) noexcept;
+
+  constexpr angle operator+(const angle&, const angle&) noexcept;
+  constexpr angle operator-(const angle&, const angle&) noexcept;
+
+  template <typename Numeric>
+  constexpr angle operator*(const angle&, Numeric);
+  template <typename Numeric>
+  constexpr angle operator/(const angle&, Numeric);
+
+  constexpr bool operator==(const angle&, const angle&) noexcept;
+  constexpr bool operator!=(const angle&, const angle&) noexcept;
+  constexpr bool operator<(const angle&, const angle&) noexcept;
+  constexpr bool operator>(const angle&, const angle&) noexcept;
+  constexpr bool operator<=(const angle&, const angle&) noexcept;
+  constexpr bool operator>=(const angle&, const angle&) noexcept;
+}
+
+#endif // SCHEME_MATH
