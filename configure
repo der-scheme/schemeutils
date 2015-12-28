@@ -636,6 +636,8 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
+BUILD_TESTS_FALSE
+BUILD_TESTS_TRUE
 HAVE_CXX11
 HAVE_GTEST_FALSE
 HAVE_GTEST_TRUE
@@ -15833,11 +15835,9 @@ else
 fi
 
 if test "x$HAVE_GTEST" = "xyes"; then :
-  echo
-
+  true
 else
-  echo
-
+  true
 fi
 
 
@@ -16037,6 +16037,18 @@ $as_echo "#define HAVE_CXX11 1" >>confdefs.h
 
 # Checks for library functions.
 
+# Automake configuration
+ if test "x$HAVE_GTEST" = xyes; then
+  BUILD_TESTS_TRUE=
+  BUILD_TESTS_FALSE='#'
+else
+  BUILD_TESTS_TRUE='#'
+  BUILD_TESTS_FALSE=
+fi
+
+
+# Finish
+
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -16176,6 +16188,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${HAVE_GTEST_TRUE}" && test -z "${HAVE_GTEST_FALSE}"; then
   as_fn_error $? "conditional \"HAVE_GTEST\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${BUILD_TESTS_TRUE}" && test -z "${BUILD_TESTS_FALSE}"; then
+  as_fn_error $? "conditional \"BUILD_TESTS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 

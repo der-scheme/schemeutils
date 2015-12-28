@@ -18,11 +18,7 @@ AC_CONFIG_FILES([Makefile
 AC_PROG_CXX
 
 # Checks for libraries.
-GTEST_LIB_CHECK([1.7],
-                [echo
-                ],
-                [echo
-                ])
+GTEST_LIB_CHECK([1.7], true, true)
 
 # Checks for header files.
 
@@ -30,5 +26,10 @@ GTEST_LIB_CHECK([1.7],
 AX_CXX_COMPILE_STDCXX_11([noext])
 
 # Checks for library functions.
+
+# Automake configuration
+AM_CONDITIONAL([BUILD_TESTS], [test "x$HAVE_GTEST" = xyes])
+
+# Finish
 
 AC_OUTPUT
