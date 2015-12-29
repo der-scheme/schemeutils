@@ -1,0 +1,78 @@
+/*
+    Schemeutils
+    Copyright (c) 2015 Sebastian Dufner
+
+    This file is part of Schemeutils.
+
+    Schemeutils is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Schemeutils is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with Schemeutils.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#ifndef   SCHEME_COLOR
+#define   SCHEME_COLOR
+
+namespace scheme {
+
+  template <typename... Components>
+  class color {
+  public:
+
+    template <typename Component>
+    Component& at() noexcept;
+  };
+
+  struct color_component {
+
+  };
+
+  struct alpha      : public color_component;
+  struct blue       : public color_component;
+  struct grayscale  : public color_component;
+  struct green      : public color_component;
+  struct hue        : public color_component;
+  struct lightness  : public color_component;
+  struct monochrome : public color_component;
+  struct red        : public color_component;
+  struct saturation : public color_component;
+  struct value      : public color_component;
+
+  typedef color<hue, saturation, lightness>         hsl_color;
+  typedef color<hue, saturation, lightness, alpha>  hsla_color;
+  typedef color<red, green, blue>                   rgb_color;
+  typedef color<red, green, blue, alpha>            rgba_color;
+
+  template <typename Color> struct has_alpha;
+  template <typename Color> struct has_blue;
+  template <typename Color> struct has_green;
+  template <typename Color> struct has_hue;
+  template <typename Color> struct has_lightness;
+  template <typename Color> struct has_red;
+  template <typename Color> struct has_saturation;
+  template <typename Color> struct has_value;
+
+  template <typename Color> struct is_grayalpha;
+  template <typename Color> struct is_grayscale;
+  template <typename Color> struct is_hsl;
+  template <typename Color> struct is_hsla;
+  template <typename Color> struct is_monochrome;
+  template <typename Color> struct is_rgb;
+  template <typename Color> struct is_rgba;
+
+  template <typename Color> struct add_alpha;
+  template <typename Color> struct remove_alpha;
+  template <typename Color> struct add_alpha;
+  template <typename Color> struct add_alpha;
+  template <typename Color> struct add_alpha;
+}
+
+#endif // SCHEME_COLOR
