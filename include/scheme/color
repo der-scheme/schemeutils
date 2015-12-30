@@ -24,27 +24,47 @@
 namespace scheme {
 
   template <typename... Components>
-  class color {
-  public:
+  class color;
+
+  template <>
+  class color<> {
+  protected:
+
+    constexpr color() = default;
 
     template <typename Component>
-    Component& at() noexcept;
+    constexpr Component& at() noexcept;
+  };
+
+  template <typename First, typename... Rest>
+  class color<First, Rest...> : public color<Rest...> {
+  public:
+
+    constexpr color(const First& first, Rest... rest) noexcept
+      : component{first}, color<Rest...>(rest...) {}
+
+    template <typename Component>
+    constexpr Component& at() noexcept;
+
+  private:
+
+    First component{};
   };
 
   struct color_component {
 
   };
 
-  struct alpha      : public color_component;
-  struct blue       : public color_component;
-  struct grayscale  : public color_component;
-  struct green      : public color_component;
-  struct hue        : public color_component;
-  struct lightness  : public color_component;
-  struct monochrome : public color_component;
-  struct red        : public color_component;
-  struct saturation : public color_component;
-  struct value      : public color_component;
+  struct alpha;
+  struct blue;
+  struct grayscale;
+  struct green;
+  struct hue;
+  struct lightness;
+  struct monochrome;
+  struct red;
+  struct saturation;
+  struct value;
 
   typedef color<hue, saturation, lightness>         hsl_color;
   typedef color<hue, saturation, lightness, alpha>  hsla_color;
@@ -70,9 +90,6 @@ namespace scheme {
 
   template <typename Color> struct add_alpha;
   template <typename Color> struct remove_alpha;
-  template <typename Color> struct add_alpha;
-  template <typename Color> struct add_alpha;
-  template <typename Color> struct add_alpha;
 }
 
 #endif // SCHEME_COLOR
