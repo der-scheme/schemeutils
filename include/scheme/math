@@ -25,7 +25,7 @@
 
 namespace scheme {
   template <typename Numeric1, typename Numeric2>
-  constexpr auto fmod(Numeric1, Numeric2) noexcept
+  constexpr auto fmod(Numeric1 a, Numeric2 b) noexcept
       -> decltype(std::fmod(a, b));
 }
 
