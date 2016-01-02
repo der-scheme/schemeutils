@@ -12,7 +12,8 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile
                  include/Makefile
                  include/scheme/Makefile
-                 src/Makefile])
+                 src/Makefile
+                 test/Makefile])
 
 # Checks for programs.
 AC_PROG_CXX
