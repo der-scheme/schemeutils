@@ -233,7 +233,14 @@ EGREP = @EGREP@
 EXEEXT = @EXEEXT@
 FGREP = @FGREP@
 GREP = @GREP@
+GTEST_CONFIG = @GTEST_CONFIG@
+GTEST_CPPFLAGS = @GTEST_CPPFLAGS@
+GTEST_CXXFLAGS = @GTEST_CXXFLAGS@
+GTEST_LDFLAGS = @GTEST_LDFLAGS@
+GTEST_LIBS = @GTEST_LIBS@
+GTEST_VERSION = @GTEST_VERSION@
 HAVE_CXX11 = @HAVE_CXX11@
+HAVE_GTEST = @HAVE_GTEST@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
@@ -324,7 +331,8 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = include src
+SUBDIRS = include src test
+EXTRA_DIST = README.md libtool
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 

@@ -1,6 +1,6 @@
 /*
     Schemeutils
-    Copyright (c) 2015 Sebastian Dufner
+    Copyright (c) 2016 Sebastian Dufner
 
     This file is part of Schemeutils.
 
@@ -18,18 +18,9 @@
     along with Schemeutils.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef   SCHEME_MATH
-#define   SCHEME_MATH
+#include <gtest/gtest.h>
 
-#include <cmath>
-
-namespace scheme {
-  template <typename Numeric1, typename Numeric2>
-  constexpr auto fmod(Numeric1 a, Numeric2 b) noexcept
-      -> decltype(std::fmod(a, b));
+int main(int argc, char** argv) {
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
-
-#include <scheme/pieces/math.hh>
-#include <scheme/trigonometry>
-
-#endif // SCHEME_MATH

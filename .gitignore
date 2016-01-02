@@ -38,3 +38,5 @@ config.status
 stamp-h1
 **/.deps
 **/.libs
+test/schemeutils_test
+test/schemeutils_test.trs
